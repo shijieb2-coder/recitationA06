@@ -1,0 +1,45 @@
+Your test suite did not compile!
+
+tests/tests.cc:107:11: error: no matching function for call to 'CompareFiles'
+  107 |   REQUIRE(CompareFiles(atm.GetTransactions(), "./test.txt"));
+      |           ^~~~~~~~~~~~
+tests/catch.hpp:17676:90: note: expanded from macro 'REQUIRE'
+ 17676 | #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+       |                                                                                          ^~~~~~~~~~~
+tests/catch.hpp:2705:40: note: expanded from macro 'INTERNAL_CATCH_TEST'
+ 2705 |         CATCH_INTERNAL_IGNORE_BUT_WARN(__VA_ARGS__); \
+      |                                        ^~~~~~~~~~~
+tests/catch.hpp:165:76: note: expanded from macro 'CATCH_INTERNAL_IGNORE_BUT_WARN'
+  165 | #    define CATCH_INTERNAL_IGNORE_BUT_WARN(...) (void)__builtin_constant_p(__VA_ARGS__) /* NOLINT(cppcoreguidelines-pro-type-vararg, hicpp-vararg) */
+      |                                                                            ^~~~~~~~~~~
+tests/tests.cc:12:6: note: candidate function not viable: no known conversion from 'std::map<std::pair<unsigned int, unsigned int>, std::vector<std::string>>' (aka 'map<pair<unsigned int, unsigned int>, vector<basic_string<char>>>') to 'const std::string' (aka 'const basic_string<char>') for 1st argument
+   12 | bool CompareFiles(const std::string& p1, const std::string& p2) {
+      |      ^            ~~~~~~~~~~~~~~~~~~~~~
+tests/tests.cc:107:11: error: no matching function for call to 'CompareFiles'
+  107 |   REQUIRE(CompareFiles(atm.GetTransactions(), "./test.txt"));
+      |           ^~~~~~~~~~~~
+tests/catch.hpp:17676:90: note: expanded from macro 'REQUIRE'
+ 17676 | #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+       |                                                                                          ^~~~~~~~~~~
+tests/catch.hpp:2710:70: note: expanded from macro 'INTERNAL_CATCH_TEST'
+ 2710 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); \
+      |                                                                      ^~~~~~~~~~~
+tests/tests.cc:12:6: note: candidate function not viable: no known conversion from 'std::map<std::pair<unsigned int, unsigned int>, std::vector<std::string>>' (aka 'map<pair<unsigned int, unsigned int>, vector<basic_string<char>>>') to 'const std::string' (aka 'const basic_string<char>') for 1st argument
+   12 | bool CompareFiles(const std::string& p1, const std::string& p2) {
+      |      ^            ~~~~~~~~~~~~~~~~~~~~~
+tests/tests.cc:107:11: error: no matching function for call to 'CompareFiles'
+  107 |   REQUIRE(CompareFiles(atm.GetTransactions(), "./test.txt"));
+      |           ^~~~~~~~~~~~
+tests/catch.hpp:17676:90: note: expanded from macro 'REQUIRE'
+ 17676 | #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
+       |                                                                                          ^~~~~~~~~~~
+tests/catch.hpp:2714:56: note: expanded from macro 'INTERNAL_CATCH_TEST'
+ 2714 |     } while( (void)0, (false) && static_cast<bool>( !!(__VA_ARGS__) ) )
+      |                                                        ^~~~~~~~~~~
+tests/tests.cc:12:6: note: candidate function not viable: no known conversion from 'std::map<std::pair<unsigned int, unsigned int>, std::vector<std::string>>' (aka 'map<pair<unsigned int, unsigned int>, vector<basic_string<char>>>') to 'const std::string' (aka 'const basic_string<char>') for 1st argument
+   12 | bool CompareFiles(const std::string& p1, const std::string& p2) {
+      |      ^            ~~~~~~~~~~~~~~~~~~~~~
+3 errors generated.
+
+
+score: 0/5
