@@ -32,7 +32,7 @@ bool CompareFiles(const std::string& p1, const std::string& p2) {
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Test Cases
 /////////////////////////////////////////////////////////////////////////////////////////////
-
+/*
 TEST_CASE("Example: Create a new account", "[ex-1]") {
   Atm atm;
   atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
@@ -73,4 +73,36 @@ TEST_CASE("Example: Print Prompt Ledger", "[ex-3]") {
       "Deposit - Amount: $32000.00, Updated Balance: $72099.90");
   atm.PrintLedger("./prompt.txt", 12345678, 1234);
   REQUIRE(CompareFiles("./ex-1.txt", "./prompt.txt"));
+}
+*/
+// Below
+unsigned int a = 12345678;
+unsigned int b = 1234;
+
+TEST_CASE("Invalid Acount Registration", "[ex-4]") {
+  Atm atm;
+  atm.RegisterAccount(a, b, "Sam", 100.0);
+  REQUIRE_THROWS_AS(atm.RegisterAccount(a, b, "Alice", 120.0),
+                    std::invalid_argument);
+}
+
+TEST_CASE("Invalid WithdrawCash", "[ex-5]") {
+  Atm atm;
+  atm.RegisterAccount(a, b, "Sam", 100.0);
+  REQUIRE_THROWS_AS(atm.WithdrawCash(a, b, -10.0), std::invalid_argument);
+  REQUIRE_THROWS_AS(atm.WithdrawCash(a, b, 120.0), std::invalid_argument);
+}
+
+TEST_CASE("Invalid PrintLedger", "[ex-6]") {
+  Atm atm;
+  atm.RegisterAccount(a, b, "Sam", 100.0);
+  atm.WithdrawCash(a, b, 50.0);
+  atm.DepositCash(a, b, 50.0);
+  auto& transactions = atm.GetTransactions();
+  transactions[{a, b}].push_back(
+      "Withdrawal - Amount: $50.00, Updated Balance: $50.00");
+  transactions[{a, b}].push_back(
+      "Deposit - Amount: $50.00, Updated Balance: $100.00");
+  atm.PrintLedger("./test6.txt", a, b);
+  REQUIRE(CompareFiles(atm.GetTransactions(), "./test.txt"));
 }

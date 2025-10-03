@@ -98,4 +98,5 @@
         "codecvt": "cpp",
         "__tree": "cpp"
     },
+    "C_Cpp.errorSquiggles": "disabled",
 }
